@@ -172,7 +172,7 @@ export default function DragonTower() {
 
         <aside className="dt-sidebar">
           <div className="dt-logo">
-            <AncientEggIcon className="dt-brand-icon" />
+            <img src="/assets/chinese-dragon.svg" alt="Dragon Tower Logo" className="dt-brand-icon" style={{ width: '32px', height: '32px' }} />
             <h2>Dragon Tower</h2>
           </div>
 
