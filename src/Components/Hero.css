@@ -1,0 +1,113 @@
+.hero {
+  padding: 30px 0 40px;
+  background: linear-gradient(180deg, var(--bg-dark) 0%, #121c26 100%);
+  width: 100%;
+}
+
+.hero-container {
+  padding: 0 2rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.hero-card {
+  position: relative;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--bg-card);
+}
+
+.hero-card:hover {
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+.casino-card:hover {
+  box-shadow: 0 0 25px rgba(26, 115, 232, 0.4);
+}
+
+.sports-card:hover {
+  box-shadow: 0 0 25px rgba(0, 230, 118, 0.4);
+}
+
+.card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.casino-card .card-bg {
+  /* Placeholder background with a subtle gradient and pattern */
+  background: linear-gradient(to right, rgba(15, 25, 35, 0.9), rgba(15, 25, 35, 0.2)), url('../assets/jonathan-greenaway-TNUEQ73frkA-unsplash.jpg') center/cover;
+}
+
+.sports-card .card-bg {
+  background: linear-gradient(to right, rgba(15, 25, 35, 0.9), rgba(15, 25, 35, 0.2)), url('../assets/tim-gouw-VvQSzMJ_h0U-unsplash.jpg') center/cover;
+}
+
+.hero-card:hover .card-bg {
+  transform: scale(1.05);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.card-content h2 {
+  font-size: 3.5rem;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.badge {
+  align-self: flex-start;
+  margin-bottom: auto;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-green);
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-card {
+    height: 250px;
+  }
+}

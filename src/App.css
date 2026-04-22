@@ -1,0 +1,16 @@
+/* App specific layout styles if needed */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 220px; /* Offset for the sidebar */
+  width: calc(100% - 220px); /* Ensure it doesn't overflow */
+  transition: margin-left 0.3s ease;
+  padding-top: 70px; /* Offset for the fixed navbar */
+}
+
+
