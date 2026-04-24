@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Animations */
+@keyframes gpFadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gpPulseGlow {
+  0% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+  100% { opacity: 0.3; transform: scale(1); }
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(-1000px) translateX(100px); opacity: 0; }
+}
+
+.gp-root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  background-color: #050b14;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+  color: #fff;
+}
+
+/* Background Effects */
+.gp-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gp-glow-1 {
+  width: 600px;
+  height: 600px;
+  background: rgba(0, 230, 118, 0.08);
+  top: -200px;
+  left: -100px;
+  animation: gpPulseGlow 8s infinite alternate ease-in-out;
+}
+
+.gp-glow-2 {
+  width: 800px;
+  height: 800px;
+  background: rgba(0, 191, 255, 0.05);
+  bottom: -300px;
+  right: -200px;
+  animation: gpPulseGlow 10s infinite alternate-reverse ease-in-out;
+}
+
+/* Subtle particle background (using a radial gradient pattern) */
+.gp-particles {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 2px, transparent 2px);
+  background-size: 40px 40px;
+  z-index: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.gp-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.gp-header {
+  text-align: center;
+  margin-bottom: 70px;
+  animation: gpFadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.gp-header-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a0aec0;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.gp-title {
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  margin: 0 0 16px 0;
+  background: linear-gradient(180deg, #ffffff 0%, #a0aec0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
+}
+
+.gp-subtitle {
+  font-size: 18px;
+  color: #8899aa;
+  margin: 0;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+/* Grid layout */
+.gp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
+/* Card Wrapper for entrance animation */
+.gp-card-wrapper {
+  opacity: 0;
+  animation: gpFadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Card Core */
+.gp-card {
+  position: relative;
+  border-radius: 24px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.1s ease-out; /* Super fast transition for 3D mouse track */
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4), 
+    inset 0 2px 10px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Glow Border Effect */
+.gp-card-glow-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%, var(--theme-color) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+.gp-card:hover .gp-card-glow-border {
+  opacity: 1;
+}
+
+.gp-card-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Icon */
+.gp-icon-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gp-card:hover .gp-icon-wrapper {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.gp-icon-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.gp-card:hover .gp-icon-glow {
+  opacity: 0.3;
+}
+
+.gp-icon {
+  font-size: 48px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+  transition: filter 0.4s ease;
+}
+
+.gp-icon-img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.gp-card:hover .gp-icon {
+  filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6));
+}
+
+/* Typography */
+.gp-card-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 30px 0;
+  color: #e1e8f0;
+  letter-spacing: -0.5px;
+  transition: color 0.4s ease;
+}
+
+.gp-card:hover .gp-card-title {
+  color: #ffffff;
+}
+
+/* Play Button */
+.gp-play-btn-wrapper {
+  width: 100%;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: auto;
+}
+
+.gp-play-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--theme-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 12px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.gp-play-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.gp-card:hover .gp-play-btn {
+  opacity: 1;
+  text-shadow: 0 0 10px var(--theme-color);
+}
+
+.gp-card:hover .gp-play-btn svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .gp-title {
+    font-size: 40px;
+  }
+  .gp-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
