@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
@@ -14,7 +15,17 @@ import SugarRushPage from './pages/games/SugarRushPage';
 import StarlightPrincessPage from './pages/games/StarlightPrincessPage';
 import FruitPartyPage from './pages/games/FruitPartyPage';
 
+// Our Original Games
+import DragonTower from "./components/Dragon-Tower/DragonTower.jsx";
+import WhackAMole from "./components/Whack-A-Mole/WhackAMole.jsx";
+import CoinToss from "./components/Coin-Toss/CoinToss.jsx";
+import Mines from "./components/Mines/Mines.jsx";
+import RPS from "./components/RPS/RPS.jsx";
+import GamesPage from "./components/GamesPage/GamesPage.jsx";
+import SportsPage from "./components/SportsPage/SportsPage.jsx";
+
 import './App.css';
+
 
 function App() {
   return (
@@ -36,6 +47,15 @@ function App() {
           <Route path="/games/sugar-rush" element={<SugarRushPage />} />
           <Route path="/games/starlight-princess" element={<StarlightPrincessPage />} />
           <Route path="/games/fruit-party" element={<FruitPartyPage />} />
+          
+          {/* Our Custom Originals Route */}
+          <Route path="/casino" element={<GamesPage />} />
+          <Route path="/sports" element={<SportsPage />} />
+          <Route path="/games/mines" element={<Mines />} />
+          <Route path="/games/dragon-tower" element={<DragonTower />} />
+          <Route path="/games/coin-toss" element={<CoinToss />} />
+          <Route path="/games/whack-a-mole" element={<WhackAMole />} />
+          <Route path="/games/rps" element={<RPS />} />
         </Routes>
       </main>
     </div>
