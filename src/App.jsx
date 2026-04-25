@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { Routes, Route } from 'react-router-dom';
+import React from "react";
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Sidebar from './Components/Sidebar';
+import { useWallet } from './context/WalletContext';
 import LandingPage from './pages/LandingPage';
+import LoginPage from './pages/LoginPage';
 import CricketPage from './pages/CricketPage';
 import FootballPage from './pages/FootballPage';
 import TennisPage from './pages/TennisPage';
@@ -15,7 +17,6 @@ import SugarRushPage from './pages/games/SugarRushPage';
 import StarlightPrincessPage from './pages/games/StarlightPrincessPage';
 import FruitPartyPage from './pages/games/FruitPartyPage';
 
-
 import DragonTower from "./Components/Dragon-Tower/DragonTower.jsx";
 import WhackAMole from "./Components/Whack-A-Mole/WhackAMole.jsx";
 import CoinToss from "./Components/Coin-Toss/CoinToss.jsx";
@@ -26,6 +27,12 @@ import SportsPage from "./Components/SportsPage/SportsPage.jsx";
 
 import './App.css';
 
+// Redirects to /login if no user is logged in
+function RequireLogin({ children }) {
+  const { user } = useWallet();
+  if (!user) return <Navigate to="/login" replace />;
+  return children;
+}
 
 function App() {
   return (
@@ -35,27 +42,27 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} />
           
           <Route path="/cricket" element={<CricketPage />} />
           <Route path="/football" element={<FootballPage />} />
           <Route path="/tennis" element={<TennisPage />} />
           <Route path="/basketball" element={<BasketballPage />} />
 
-          <Route path="/games/sweet-bonanza" element={<SweetBonanzaPage />} />
-          <Route path="/games/gates-of-olympus" element={<GatesOfOlympusPage />} />
-          <Route path="/games/wanted-dead" element={<WantedDeadPage />} />
-          <Route path="/games/sugar-rush" element={<SugarRushPage />} />
-          <Route path="/games/starlight-princess" element={<StarlightPrincessPage />} />
-          <Route path="/games/fruit-party" element={<FruitPartyPage />} />
+          <Route path="/games/sweet-bonanza" element={<RequireLogin><SweetBonanzaPage /></RequireLogin>} />
+          <Route path="/games/gates-of-olympus" element={<RequireLogin><GatesOfOlympusPage /></RequireLogin>} />
+          <Route path="/games/wanted-dead" element={<RequireLogin><WantedDeadPage /></RequireLogin>} />
+          <Route path="/games/sugar-rush" element={<RequireLogin><SugarRushPage /></RequireLogin>} />
+          <Route path="/games/starlight-princess" element={<RequireLogin><StarlightPrincessPage /></RequireLogin>} />
+          <Route path="/games/fruit-party" element={<RequireLogin><FruitPartyPage /></RequireLogin>} />
           
-          {}
           <Route path="/casino" element={<GamesPage />} />
           <Route path="/sports" element={<SportsPage />} />
-          <Route path="/games/mines" element={<Mines />} />
-          <Route path="/games/dragon-tower" element={<DragonTower />} />
-          <Route path="/games/coin-toss" element={<CoinToss />} />
-          <Route path="/games/whack-a-mole" element={<WhackAMole />} />
-          <Route path="/games/rps" element={<RPS />} />
+          <Route path="/games/mines" element={<RequireLogin><Mines /></RequireLogin>} />
+          <Route path="/games/dragon-tower" element={<RequireLogin><DragonTower /></RequireLogin>} />
+          <Route path="/games/coin-toss" element={<RequireLogin><CoinToss /></RequireLogin>} />
+          <Route path="/games/whack-a-mole" element={<RequireLogin><WhackAMole /></RequireLogin>} />
+          <Route path="/games/rps" element={<RequireLogin><RPS /></RequireLogin>} />
         </Routes>
       </main>
     </div>
