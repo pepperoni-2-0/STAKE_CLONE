@@ -2,10 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import './TrendingGames.css';
 
 const games = [
-  { id: 1, name: 'Mines', players: '1,141', slug: 'sweet-bonanza', img: 'https://mediumrare.imgix.net/15a51a2ae2895872ae2b600fa6fe8d7f8d32c9814766b66ddea2b288d04ba89c?w=180&amp;h=236&amp;fit=min&amp;auto=format' },
-  { id: 2, name: 'Dragon Tower', players: '2,302', slug: 'gates-of-olympus', img: 'https://mediumrare.imgix.net/2c3e16f0a3b8cd8d979265e48dd6a169937a4a4d0acb05ad532ca8345a1e6f21?w=180&amp;h=236&amp;fit=min&amp;auto=format' },
-  { id: 3, name: 'Coin Toss', players: '890', slug: 'wanted-dead', img: 'https://mediumrare.imgix.net/9c6af445f46fc5215b26720b25db5cfc650ba1b3579134db55682fc96ef68492?w=180&amp;h=236&amp;fit=min&amp;auto=format' },
-  { id: 4, name: 'Wahck-A-Mole', players: '1,560', slug: 'sugar-rush', img: 'https://mediumrare.imgix.net/5e6f7bb02df67a02a9182aab05d0976a9abbac7f45997975eed765332a8b7d73?w=180&amp;h=236&amp;fit=min&amp;auto=format' },
+  { id: 1, name: 'Mines', players: '1,141', slug: 'mines', img: '/assets/mines_logo.png' },
+  { id: 2, name: 'Dragon Tower', players: '2,302', slug: 'dragon-tower', img: 'https://mediumrare.imgix.net/2c3e16f0a3b8cd8d979265e48dd6a169937a4a4d0acb05ad532ca8345a1e6f21?w=180&amp;h=236&amp;fit=min&amp;auto=format' },
+  { id: 3, name: 'Coin Toss', players: '890', slug: 'coin-toss', img: '/assets/coinToss.png' },
+  { id: 4, name: 'Whack-A-Mole', players: '1,560', slug: 'whack-a-mole', img: 'https://mediumrare.imgix.net/5e6f7bb02df67a02a9182aab05d0976a9abbac7f45997975eed765332a8b7d73?w=180&amp;h=236&amp;fit=min&amp;auto=format' },
+  { id: 5, name: 'RPS Duel', players: '3,412', slug: 'rps', img: '/assets/rps.png' },
 ];
 
 const TrendingGames = () => {
