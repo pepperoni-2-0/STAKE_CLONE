@@ -1,20 +1,20 @@
 # Stake Clone — Premium Casino & Sportsbook
 
-A modern, high-fidelity React clone of a premium online casino and sportsbook dashboard. This project features a seamless dark-themed UI with glassmorphism, dynamic animations, and real-time sports betting integration.
+A modern, high-fidelity React clone of a premium online casino and sportsbook dashboard. This project features a seamless dark-themed UI with glassmorphism, dynamic animations, and real-time sports betting integration. 
 
 ## 🚀 Features
-
-### 🎰 Casino Dashboard
-- Modern, responsive landing page with promotional hero banners.
-- Left-hand sidebar navigation for easy access to games.
-- Seamless "Dragon Tower" mini-game integration.
-- Smooth CSS transitions and hover effects for a premium feel.
+### 🎰 Casino & Mini-Games
+Experience a fully-featured casino dashboard with smooth CSS transitions and hover effects for a premium feel. We have integrated several fully playable mini-games directly into the platform:
+- **Dragon Tower:** Scale the tower and avoid the dragons to multiply your winnings.
+- **Mines:** A classic risk-and-reward grid game.
+- **Coin Toss:** Fast-paced heads or tails action.
+- **RPS (Rock Paper Scissors):** A quick and intuitive betting version of the classic game.
+- **Whack-A-Mole:** An interactive, reflex-testing arcade game.
 
 ### ⚽ Live Sportsbook
 - **Real-Time Odds:** Live and upcoming match odds fetched dynamically from [The Odds API](https://the-odds-api.com/).
 - **Sports Support:** Dedicated pages and routing for Football (Soccer), Cricket, Tennis, and Basketball.
 - **Top Matches Carousel:** An animated horizontal scrolling component highlighting the biggest live and upcoming matches across leagues.
-- **Dynamic Team Logos:** Automatically fetches high-quality team logos. If a logo is missing, it gracefully falls back to a generated initial avatar.
 - **Interactive Bet Slip:** A fully functional bet slip that slides in, calculates multi-bet odds, potential payouts, and allows users to manage their selections.
 - **Smart API Caching:** Built-in 10-minute LocalStorage caching to drastically reduce API credit consumption during development and usage.
 
@@ -24,7 +24,6 @@ A modern, high-fidelity React clone of a premium online casino and sportsbook da
 - **Build Tool:** Vite
 - **Routing:** React Router DOM
 - **Animations:** Framer Motion
-- **Styling:** Vanilla CSS (Flexbox, Grid, CSS Variables)
 - **APIs:** The Odds API, ui-avatars
 
 ## 📦 Installation & Setup
@@ -57,5 +56,7 @@ A modern, high-fidelity React clone of a premium online casino and sportsbook da
 - **State Management:** React local state and Context are used to manage the Bet Slip across different sports pages.
 - **Rate Limiting Protection:** The Sportsbook actively groups matches by league and caches responses locally to prevent hitting API rate limits or exhausting free credits.
 
-## 🤝 Contributing
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+## 🤝 Contributors
+- **[Harsh Sharma](https://github.com/harshhh-08)**
+- **[Akshit Tomar](https://github.com/akshyyyt)**
+- **[Arshnoor Singh](https://github.com/ArshOnGit1607)**
