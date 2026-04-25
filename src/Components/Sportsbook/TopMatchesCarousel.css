@@ -213,6 +213,19 @@
   border-color: #00e701;
 }
 
+.tmc-odds-btn--active {
+  background: #00e701 !important;
+  border-color: #00e701 !important;
+}
+
+.tmc-odds-btn--active .tmc-odds-label {
+  color: #000;
+}
+
+.tmc-odds-btn--active .tmc-odds-val {
+  color: #000;
+}
+
 .tmc-odds-label {
   font-size: 10px;
   color: #5a7a9a;

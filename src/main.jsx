@@ -4,13 +4,16 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import { WalletProvider } from './context/WalletContext'
+import { BetSlipProvider } from './context/BetSlipContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <WalletProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <BetSlipProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </BetSlipProvider>
     </WalletProvider>
   </StrictMode>,
 )

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { fetchOddsForCategory } from '../../services/oddsService'
 import { getCachedLogo } from '../../services/logoService'
+import { useBetSlip } from '../../context/BetSlipContext'
 import './TopMatchesCarousel.css'
 
 function TeamLogo({ teamName }) {
@@ -19,6 +20,7 @@ export default function TopMatchesCarousel({ sport }) {
   const [matches, setMatches] = useState([])
   const [loading, setLoading] = useState(true)
   const scrollRef = useRef(null)
+  const { selectedBets, toggleBet } = useBetSlip()
 
   useEffect(() => {
     async function load() {
@@ -116,8 +118,25 @@ export default function TopMatchesCarousel({ sport }) {
                   const label = name.toLowerCase() === 'draw'
                     ? 'Draw'
                     : name.split(' ')[0]
+                  
+                  let type = 'home'
+                  if (name === match.awayTeam) type = 'away'
+                  if (name === 'Draw') type = 'draw'
+
+                  const betId = `${match.id}_${type}`
+                  const isActive = selectedBets[betId]
+
                   return (
-                    <div key={name} className="tmc-odds-btn">
+                    <div 
+                      key={name} 
+                      className={`tmc-odds-btn ${isActive ? 'tmc-odds-btn--active' : ''}`}
+                      onClick={() => toggleBet({
+                        id: betId,
+                        match: `${match.homeTeam} vs ${match.awayTeam}`,
+                        selection: name,
+                        odds: price
+                      })}
+                    >
                       <span className="tmc-odds-label">{label}</span>
                       <span className="tmc-odds-val">{Number(price).toFixed(2)}</span>
                     </div>

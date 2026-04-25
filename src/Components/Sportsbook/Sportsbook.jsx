@@ -10,6 +10,7 @@ import BetSlip from './BetSlip'
 import SkeletonLoader from './SkeletonLoader'
 import { fetchOddsForCategory, groupByLeague, hasApiKey, getRemainingQuota } from '../../services/oddsService'
 import { preloadLogos } from '../../services/logoService'
+import { useBetSlip } from '../../context/BetSlipContext'
 
 export default function Sportsbook({ initialSport = 'football' }) {
   const navigate = useNavigate()
@@ -18,9 +19,10 @@ export default function Sportsbook({ initialSport = 'football' }) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [matchCounts, setMatchCounts] = useState({})
-  const [selectedBets, setSelectedBets] = useState({})
   const [prevOddsMap, setPrevOddsMap] = useState({})
   const [quotaRemaining, setQuotaRemaining] = useState(null)
+
+  const { selectedBets, toggleBet, removeBet, clearAllBets } = useBetSlip()
 
   const { balance, placeBet, updateBetOutcome, setShowDepositModal } = useWallet()
 
@@ -88,27 +90,9 @@ export default function Sportsbook({ initialSport = 'football' }) {
     }
   }
 
-  const handleToggleBet = (bet) => {
-    setSelectedBets((prev) => {
-      const next = { ...prev }
-      if (next[bet.id]) {
-        delete next[bet.id]
-      } else {
-        next[bet.id] = bet
-      }
-      return next
-    })
-  }
-
-  const handleRemoveBet = (betId) => {
-    setSelectedBets((prev) => {
-      const next = { ...prev }
-      delete next[betId]
-      return next
-    })
-  }
-
-  const handleClearAll = () => setSelectedBets({})
+  const handleToggleBet = (bet) => toggleBet(bet)
+  const handleRemoveBet = (betId) => removeBet(betId)
+  const handleClearAll = () => clearAllBets()
 
   const handlePlaceBet = (stake) => {
     const betList = Object.values(selectedBets);
