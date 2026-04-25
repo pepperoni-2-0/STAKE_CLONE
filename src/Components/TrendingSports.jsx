@@ -2,10 +2,10 @@ import { useNavigate } from 'react-router-dom';
 import './TrendingSports.css';
 
 const sports = [
-  { id: 'cricket', name: 'Cricket', path: '/cricket', img: 'https://mediumrare.imgix.net/cricket-en.png?w=180&amp;h=236&amp;fit=min&amp;auto=format', cta: 'Bet Now →' },
-  { id: 'football', name: 'Football', path: '/football', img: 'https://mediumrare.imgix.net/soccer-en.png?w=180&amp;h=236&amp;fit=min&amp;auto=format', cta: 'View Matches →' },
-  { id: 'tennis', name: 'Tennis', path: '/tennis', img: 'https://mediumrare.imgix.net/tennis-en.png?w=180&amp;h=236&amp;fit=min&amp;auto=format', cta: 'Bet Now →' },
-  { id: 'basketball', name: 'Basketball', path: '/basketball', img: 'https://mediumrare.imgix.net/basketball-en.png?w=180&amp;h=236&amp;fit=min&amp;auto=format', cta: 'View Matches →' },
+  { id: 'cricket', name: 'Cricket', path: '/cricket', img: 'https://api.the-odds-api.com/v4/sports: 'Bet Now →' },
+  { id: 'football', name: 'Football', path: '/football', img: 'https://api.the-odds-api.com/v4/sports: 'View Matches →' },
+  { id: 'tennis', name: 'Tennis', path: '/tennis', img: 'https://api.the-odds-api.com/v4/sports: 'Bet Now →' },
+  { id: 'basketball', name: 'Basketball', path: '/basketball', img: 'https://api.the-odds-api.com/v4/sports: 'View Matches →' },
 ];
 
 const TrendingSports = () => {

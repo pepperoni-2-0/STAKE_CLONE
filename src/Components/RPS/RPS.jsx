@@ -65,23 +65,23 @@ const ScissorsIcon = () => (
         <stop offset="100%" stopColor="#c53030" />
       </linearGradient>
     </defs>
-    {/* Blade 1 */}
+    {}
     <path d="M40 55 L85 15 Q90 10 95 15 L45 60 Z" fill="url(#bladeGrad)" stroke="#2d3748" strokeWidth="1" filter="drop-shadow(2px 2px 3px rgba(0,0,0,0.4))" />
     <path d="M40 55 L85 15 L88 20 L45 60 Z" fill="#ffffff" opacity="0.4" />
     
-    {/* Blade 2 */}
+    {}
     <path d="M60 55 L15 15 Q10 10 5 15 L55 60 Z" fill="url(#bladeGrad)" stroke="#2d3748" strokeWidth="1" filter="drop-shadow(2px 2px 3px rgba(0,0,0,0.4))" />
     <path d="M60 55 L15 15 L12 20 L55 60 Z" fill="#ffffff" opacity="0.4" />
     
-    {/* Handle 1 */}
+    {}
     <path d="M45 60 L35 75 A15 15 0 1 0 45 95 A15 15 0 0 0 55 80 Z" fill="url(#handleGrad)" stroke="#742a2a" strokeWidth="2" filter="drop-shadow(1px 3px 5px rgba(0,0,0,0.5))" />
     <circle cx="35" cy="85" r="8" fill="#1a202c" stroke="#4a5568" strokeWidth="2" />
     
-    {/* Handle 2 */}
+    {}
     <path d="M55 60 L65 75 A15 15 0 1 1 55 95 A15 15 0 0 1 45 80 Z" fill="url(#handleGrad)" stroke="#742a2a" strokeWidth="2" filter="drop-shadow(1px 3px 5px rgba(0,0,0,0.5))" />
     <circle cx="65" cy="85" r="8" fill="#1a202c" stroke="#4a5568" strokeWidth="2" />
     
-    {/* Pivot Screw */}
+    {}
     <circle cx="50" cy="58" r="4" fill="#a0aec0" stroke="#2d3748" strokeWidth="1" />
     <line x1="48" y1="56" x2="52" y2="60" stroke="#2d3748" strokeWidth="1" />
   </svg>
@@ -144,7 +144,7 @@ export default function RPS() {
       } else if (outcome === "tie") {
         setStatus("tie");
         setWinAmount(bet);
-        updateBetOutcome(betId, bet, 1, "won"); // Tie is a refund, count as won with 1x
+        updateBetOutcome(betId, bet, 1, "won"); 
       } else {
         setStatus("lost");
         updateBetOutcome(betId, 0, 0, "lost");

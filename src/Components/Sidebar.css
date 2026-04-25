@@ -1,10 +1,10 @@
 .sidebar {
   position: fixed;
-  top: 70px; /* Below the navbar */
+  top: 70px; 
   left: 0;
   width: 220px;
   height: calc(100vh - 70px);
-  background: #131f2e; /* Slightly lighter than main bg */
+  background: #131f2e; 
   border-right: 1px solid rgba(255, 255, 255, 0.05);
   overflow-y: auto;
   z-index: 900;
@@ -86,7 +86,7 @@
 }
 
 .dropdown-content.open {
-  max-height: 300px; /* Sufficient height for items */
+  max-height: 300px; 
 }
 
 .sub-item {
@@ -127,7 +127,7 @@
   margin: 1rem 0;
 }
 
-/* Custom scrollbar for sidebar */
+
 .sidebar::-webkit-scrollbar {
   width: 6px;
 }

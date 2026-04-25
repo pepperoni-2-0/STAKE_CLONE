@@ -64,7 +64,7 @@
   z-index: 1;
 }
 
-/* Gradient overlay for readability */
+
 .game-card::after {
   content: '';
   position: absolute;

@@ -55,7 +55,7 @@
   color: #00e701;
 }
 
-/* Scroll container */
+
 .tmc-scroll {
   display: flex;
   gap: 16px;
@@ -68,7 +68,7 @@
 
 .tmc-scroll::-webkit-scrollbar { display: none; }
 
-/* Card */
+
 .tmc-card {
   flex: 0 0 300px;
   scroll-snap-align: start;
@@ -97,7 +97,7 @@
   box-shadow: 0 4px 24px rgba(255, 77, 77, 0.12);
 }
 
-/* Top bar */
+
 .tmc-card-top {
   display: flex;
   align-items: center;
@@ -137,7 +137,7 @@
   white-space: nowrap;
 }
 
-/* Teams */
+
 .tmc-teams {
   display: flex;
   align-items: center;
@@ -188,7 +188,7 @@
   flex-shrink: 0;
 }
 
-/* Odds */
+
 .tmc-odds {
   display: flex;
   gap: 8px;
@@ -227,7 +227,7 @@
   color: #00e701;
 }
 
-/* Skeleton */
+
 .tmc-skeleton-row {
   display: flex;
   gap: 16px;

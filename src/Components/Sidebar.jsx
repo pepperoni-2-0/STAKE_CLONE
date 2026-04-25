@@ -10,7 +10,7 @@ const Sidebar = () => {
     <aside className="sidebar">
       <div className="sidebar-content">
         
-        {/* Casino Dropdown */}
+        {}
         <div className="sidebar-section">
           <button 
             className="dropdown-toggle" 
@@ -31,7 +31,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        {/* Sports Dropdown */}
+        {}
         <div className="sidebar-section">
           <button 
             className="dropdown-toggle" 
@@ -59,7 +59,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        {/* Static Links */}
+        {}
         <Link to="/" className="static-link">
           Home
         </Link>

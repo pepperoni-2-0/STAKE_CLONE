@@ -40,14 +40,14 @@ export const WalletProvider = ({ children }) => {
       const newBet = {
         id: Date.now(),
         amount,
-        type, // 'Casino' or 'Sports'
+        type, 
         game,
         time: new Date().toLocaleTimeString(),
         multiplier: 0,
         payout: 0,
-        status: 'pending' // 'pending', 'won', 'lost'
+        status: 'pending' 
       };
-      setBetHistory(prev => [newBet, ...prev].slice(0, 50)); // Keep last 50
+      setBetHistory(prev => [newBet, ...prev].slice(0, 50)); 
       return newBet.id;
     }
     return null;

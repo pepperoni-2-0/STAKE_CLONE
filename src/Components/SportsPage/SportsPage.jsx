@@ -1,14 +1,14 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-// We reuse the exact same CSS classes from GamesPage to keep 100% UI consistency!
+
 import "../GamesPage/GamesPage.css";
 import BetHistory from "../BetHistory/BetHistory";
 
 const SPORTS = [
-  { id: "cricket", slug: "cricket", name: "Cricket", img: "https://mediumrare.imgix.net/cricket-en.png?w=180&auto=format", color: "#00bfff", bgGradient: "linear-gradient(135deg, #001f2a 0%, #00131a 100%)" },
-  { id: "football", slug: "football", name: "Football", img: "https://mediumrare.imgix.net/soccer-en.png?w=180&auto=format", color: "#ff4d4d", bgGradient: "linear-gradient(135deg, #2a0808 0%, #1a0505 100%)" },
-  { id: "tennis", slug: "tennis", name: "Tennis", img: "https://mediumrare.imgix.net/tennis-en.png?w=180&auto=format", color: "#00e676", bgGradient: "linear-gradient(135deg, #002a15 0%, #001a0d 100%)" },
-  { id: "basketball", slug: "basketball", name: "Basketball", img: "https://mediumrare.imgix.net/basketball-en.png?w=180&auto=format", color: "#ffb700", bgGradient: "linear-gradient(135deg, #2a1f00 0%, #1a1300 100%)" }
+  { id: "cricket", slug: "cricket", name: "Cricket", img: "https://api.the-odds-api.com/v4/sports: "#00bfff", bgGradient: "linear-gradient(135deg, #001f2a 0%, #00131a 100%)" },
+  { id: "football", slug: "football", name: "Football", img: "https://api.the-odds-api.com/v4/sports: "#ff4d4d", bgGradient: "linear-gradient(135deg, #2a0808 0%, #1a0505 100%)" },
+  { id: "tennis", slug: "tennis", name: "Tennis", img: "https://api.the-odds-api.com/v4/sports: "#00e676", bgGradient: "linear-gradient(135deg, #002a15 0%, #001a0d 100%)" },
+  { id: "basketball", slug: "basketball", name: "Basketball", img: "https://api.the-odds-api.com/v4/sports: "#ffb700", bgGradient: "linear-gradient(135deg, #2a1f00 0%, #1a1300 100%)" }
 ];
 
 export default function SportsPage() {

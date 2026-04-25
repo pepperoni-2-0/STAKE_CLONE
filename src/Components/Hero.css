@@ -50,7 +50,7 @@
 }
 
 .casino-card .card-bg {
-  /* Placeholder background with a subtle gradient and pattern */
+  
   background: linear-gradient(to right, rgba(15, 25, 35, 0.9), rgba(15, 25, 35, 0.2)), url('../assets/jonathan-greenaway-TNUEQ73frkA-unsplash.jpg') center/cover;
 }
 

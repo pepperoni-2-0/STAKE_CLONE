@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://api.the-odds-api.com/v4/sports//fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
   --sb-bg: #0f1923;
@@ -18,7 +18,7 @@
   --sb-radius-sm: 8px;
 }
 
-/* ── Layout ── */
+
 .sportsbook {
   font-family: 'Inter', -apple-system, sans-serif;
   background: linear-gradient(135deg, #0b1219 0%, #0f1923 40%, #0d1a24 100%);
@@ -44,7 +44,7 @@
   padding-bottom: 40px;
 }
 
-/* ── API Key Banner ── */
+
 .sb-api-banner {
   background: linear-gradient(135deg, #1a2c38, #213743);
   border: 1px solid var(--sb-border);
@@ -83,7 +83,7 @@
   text-decoration: underline;
 }
 
-/* ── Sports Bar ── */
+
 .sports-bar {
   display: flex;
   align-items: center;
@@ -155,7 +155,7 @@
   text-align: center;
 }
 
-/* ── League Section ── */
+
 .league-section {
   margin-bottom: 24px;
 }
@@ -208,7 +208,7 @@
   margin-left: auto;
 }
 
-/* ── Match Row ── */
+
 .match-row {
   display: flex;
   align-items: center;
@@ -258,7 +258,7 @@
   text-overflow: ellipsis;
 }
 
-/* ── Match Time / Status ── */
+
 .match-status {
   display: flex;
   flex-direction: column;
@@ -305,7 +305,7 @@
   50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(237, 65, 99, 0); }
 }
 
-/* ── Odds Buttons ── */
+
 .odds-group {
   display: flex;
   gap: 6px;
@@ -365,7 +365,7 @@
   color: var(--sb-accent);
 }
 
-/* Odds change flash */
+
 .odds-flash-up {
   animation: flashUp 0.6s ease;
 }
@@ -384,7 +384,7 @@
   100% { color: var(--sb-text-bright); }
 }
 
-/* ── Bet Slip ── */
+
 .betslip-wrapper {
   width: 320px;
   flex-shrink: 0;
@@ -500,7 +500,7 @@
   color: var(--sb-accent);
 }
 
-/* Bet slip footer */
+
 .betslip-footer {
   padding: 16px;
   border-top: 1px solid var(--sb-border);
@@ -603,7 +603,7 @@
   box-shadow: none;
 }
 
-/* ── Skeleton Loader ── */
+
 .skeleton {
   background: linear-gradient(90deg, var(--sb-surface) 25%, var(--sb-surface-hover) 50%, var(--sb-surface) 75%);
   background-size: 200% 100%;
@@ -633,7 +633,7 @@
   margin-bottom: 12px;
 }
 
-/* ── Responsive ── */
+
 @media (max-width: 1024px) {
   .betslip-wrapper {
     display: none;

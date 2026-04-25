@@ -4,7 +4,7 @@ import { useWallet } from "../../context/WalletContext";
 
 const TOTAL_TILES = 25;
 
-// No more GemIcon, using 1.png
+
 
 export default function Mines() {
   const [status, setStatus] = useState("idle");

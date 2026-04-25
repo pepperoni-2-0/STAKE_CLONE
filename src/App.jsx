@@ -15,7 +15,7 @@ import SugarRushPage from './pages/games/SugarRushPage';
 import StarlightPrincessPage from './pages/games/StarlightPrincessPage';
 import FruitPartyPage from './pages/games/FruitPartyPage';
 
-// Our Original Games
+
 import DragonTower from "./Components/Dragon-Tower/DragonTower.jsx";
 import WhackAMole from "./Components/Whack-A-Mole/WhackAMole.jsx";
 import CoinToss from "./Components/Coin-Toss/CoinToss.jsx";
@@ -48,7 +48,7 @@ function App() {
           <Route path="/games/starlight-princess" element={<StarlightPrincessPage />} />
           <Route path="/games/fruit-party" element={<FruitPartyPage />} />
           
-          {/* Our Custom Originals Route */}
+          {}
           <Route path="/casino" element={<GamesPage />} />
           <Route path="/sports" element={<SportsPage />} />
           <Route path="/games/mines" element={<Mines />} />

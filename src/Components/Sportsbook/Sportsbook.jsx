@@ -124,9 +124,9 @@ export default function Sportsbook({ initialSport = 'football' }) {
     
     const betId = placeBet(stake, "Sports", gameName);
     if (betId) {
-      // Simulate sports bet outcome after 10 seconds for demo purposes
+      
       setTimeout(() => {
-        const won = Math.random() > 0.4; // 60% chance to win for demo
+        const won = Math.random() > 0.4; 
         if (won) {
           const payout = +(stake * totalOdds).toFixed(2);
           updateBetOutcome(betId, payout, totalOdds, "won");
@@ -184,7 +184,7 @@ export default function Sportsbook({ initialSport = 'football' }) {
               </p>
               <p style={{ marginTop: 12 }}>
                 Get a free key at{' '}
-                <a href="https://the-odds-api.com/" target="_blank" rel="noopener noreferrer">
+                <a href="https://api.the-odds-api.com/v4/sports
                   the-odds-api.com
                 </a>
               </p>
@@ -206,7 +206,7 @@ export default function Sportsbook({ initialSport = 'football' }) {
                 During development, every time you saved a file, the app "hot-reloaded" and fetched odds from the API again. This burned through your free quota extremely fast.
               </p>
               <p style={{ marginTop: 12 }}>
-                <strong>Good News:</strong> The app now uses a 10-minute Local Cache! Please generate one final free API key at <a href="https://the-odds-api.com/" target="_blank" rel="noopener noreferrer">the-odds-api.com</a> and it will last you practically forever while coding!
+                <strong>Good News:</strong> The app now uses a 10-minute Local Cache! Please generate one final free API key at <a href="https://api.the-odds-api.com/v4/sports
               </p>
             </div>
           )}

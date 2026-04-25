@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://api.the-odds-api.com/v4/sports//fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-/* Animations */
+
 @keyframes gpFadeInUp {
   0% { opacity: 0; transform: translateY(40px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -31,7 +31,7 @@
   color: #fff;
 }
 
-/* Background Effects */
+
 .gp-bg-glow {
   position: absolute;
   border-radius: 50%;
@@ -58,7 +58,7 @@
   animation: gpPulseGlow 10s infinite alternate-reverse ease-in-out;
 }
 
-/* Subtle particle background (using a radial gradient pattern) */
+
 .gp-particles {
   position: absolute;
   inset: 0;
@@ -79,7 +79,7 @@
   align-items: center;
 }
 
-/* Header */
+
 .gp-header {
   text-align: center;
   margin-bottom: 70px;
@@ -121,7 +121,7 @@
   line-height: 1.5;
 }
 
-/* Grid layout */
+
 .gp-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -129,13 +129,13 @@
   width: 100%;
 }
 
-/* Card Wrapper for entrance animation */
+
 .gp-card-wrapper {
   opacity: 0;
   animation: gpFadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-/* Card Core */
+
 .gp-card {
   position: relative;
   border-radius: 24px;
@@ -145,7 +145,7 @@
   align-items: center;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.1s ease-out; /* Super fast transition for 3D mouse track */
+  transition: transform 0.1s ease-out; 
   border: 1px solid rgba(255, 255, 255, 0.03);
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.4), 
@@ -154,7 +154,7 @@
   height: 100%;
 }
 
-/* Glow Border Effect */
+
 .gp-card-glow-border {
   position: absolute;
   inset: 0;
@@ -181,7 +181,7 @@
   align-items: center;
 }
 
-/* Icon */
+
 .gp-icon-wrapper {
   position: relative;
   width: 100px;
@@ -231,7 +231,7 @@
   filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6));
 }
 
-/* Typography */
+
 .gp-card-title {
   font-size: 24px;
   font-weight: 800;
@@ -245,7 +245,7 @@
   color: #ffffff;
 }
 
-/* Play Button */
+
 .gp-play-btn-wrapper {
   width: 100%;
   padding-top: 10px;

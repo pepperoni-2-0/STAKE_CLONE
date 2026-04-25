@@ -16,7 +16,7 @@
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #202a39; /* Add a dark background for transparent pngs */
+  background-color: #202a39; 
 }
 
 .sport-card-large:hover {

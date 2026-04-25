@@ -19,7 +19,7 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Sidebar */
+
 .rps-sidebar {
   width: 320px;
   background: #1a242d;
@@ -120,7 +120,7 @@
   cursor: not-allowed;
 }
 
-/* Choice Buttons */
+
 .rps-choice-btns {
   display: flex;
   gap: 8px;
@@ -155,7 +155,7 @@
   cursor: not-allowed;
 }
 
-/* Stats */
+
 .rps-stats {
   background: #0f1923;
   border-radius: 8px;
@@ -186,7 +186,7 @@
 .rps-stat-row .amber { color: #f6ad55; }
 .rps-stat-row .green { color: #48bb78; }
 
-/* Primary Button */
+
 .rps-btn-primary {
   position: relative;
   width: 100%;
@@ -241,7 +241,7 @@
   100% { left: 200%; }
 }
 
-/* Board Area */
+
 .rps-board-area {
   flex: 1;
   position: relative;
@@ -252,7 +252,7 @@
   padding: 40px;
 }
 
-/* Duel Container */
+
 .rps-duel-container {
   display: flex;
   align-items: center;
@@ -306,7 +306,7 @@
   color: #4a5568;
 }
 
-/* Animations */
+
 @keyframes rpsShake {
   0% { transform: translateY(0); }
   25% { transform: translateY(-20px); }
@@ -326,7 +326,7 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* Result Overlay */
+
 .rps-result-overlay {
   position: absolute;
   inset: 0;
