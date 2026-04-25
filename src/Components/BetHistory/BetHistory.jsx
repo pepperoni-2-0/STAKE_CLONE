@@ -58,10 +58,10 @@ const BetHistory = () => {
                     </div>
                   </td>
                   <td className="time-cell">{bet.time}</td>
-                  <td>${bet.amount.toFixed(2)}</td>
+                  <td>₹{bet.amount.toFixed(2)}</td>
                   <td>{bet.multiplier > 0 ? `${bet.multiplier.toFixed(2)}x` : '-'}</td>
                   <td className={bet.payout > 0 ? 'payout-win' : ''}>
-                    ${bet.payout.toFixed(2)}
+                    ₹{bet.payout.toFixed(2)}
                   </td>
                   <td>
                     <span className={`status-badge ${bet.status}`}>

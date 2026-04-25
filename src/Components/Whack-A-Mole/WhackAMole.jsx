@@ -143,7 +143,7 @@ export default function WhackAMole() {
           <div className="wam-field">
             <label>Bet Amount</label>
             <div className="wam-input-wrap">
-              <span className="currency">$</span>
+              <span className="currency">₹</span>
               <input
                 type="number"
                 min="1"
@@ -171,7 +171,7 @@ export default function WhackAMole() {
             </div>
             <div className="wam-stat-row">
               <span className="label">Current Win</span>
-              <span className="value green">${isPlaying || status === "idle" ? potentialWin : winAmount.toFixed(2)}</span>
+              <span className="value green">₹{isPlaying || status === "idle" ? potentialWin : winAmount.toFixed(2)}</span>
             </div>
           </div>
 
@@ -186,7 +186,7 @@ export default function WhackAMole() {
               onClick={cashOut}
               disabled={hits === 0 || isAnimating}
             >
-              CASH OUT — ${potentialWin}
+              CASH OUT — ₹{potentialWin}
             </button>
           )}
 
@@ -202,7 +202,7 @@ export default function WhackAMole() {
             <div className="wam-result-overlay">
               <div className="wam-result-banner loss">
                 Empty Hole!
-                <span className="amount">$0.00</span>
+                <span className="amount">₹0.00</span>
               </div>
             </div>
           )}
@@ -210,7 +210,7 @@ export default function WhackAMole() {
             <div className="wam-result-overlay">
               <div className="wam-result-banner cashout-banner">
                 Cashed Out!
-                <span className="amount">${winAmount.toFixed(2)}</span>
+                <span className="amount">₹{winAmount.toFixed(2)}</span>
               </div>
             </div>
           )}

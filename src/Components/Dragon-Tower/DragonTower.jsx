@@ -197,7 +197,7 @@ export default function DragonTower() {
           <div className="dt-field">
             <label>Bet Amount</label>
             <div className="dt-input-wrap">
-              <span className="currency">$</span>
+              <span className="currency">₹</span>
               <input
                 type="number"
                 min="1"
@@ -225,7 +225,7 @@ export default function DragonTower() {
             </div>
             <div className="dt-stat-row">
               <span className="label">Potential Win</span>
-              <span className="value green">${isPlaying || status === "idle" ? potentialWin : winAmount.toFixed(2)}</span>
+              <span className="value green">₹{isPlaying || status === "idle" ? potentialWin : winAmount.toFixed(2)}</span>
             </div>
           </div>
 
@@ -240,7 +240,7 @@ export default function DragonTower() {
               onClick={cashOut}
               disabled={currentLevel === 0}
             >
-              CASH OUT — ${potentialWin}
+              CASH OUT — ₹{potentialWin}
             </button>
           )}
 
@@ -257,7 +257,7 @@ export default function DragonTower() {
             <div className="dt-result-overlay">
               <div className="dt-result-banner win">
                 You won!
-                <span className="amount">${winAmount.toFixed(2)}</span>
+                <span className="amount">₹{winAmount.toFixed(2)}</span>
               </div>
             </div>
           )}
@@ -265,7 +265,7 @@ export default function DragonTower() {
             <div className="dt-result-overlay">
               <div className="dt-result-banner loss">
                 Dragon got you!
-                <span className="amount">$0.00</span>
+                <span className="amount">₹0.00</span>
               </div>
             </div>
           )}
@@ -273,7 +273,7 @@ export default function DragonTower() {
             <div className="dt-result-overlay">
               <div className="dt-result-banner cashout-banner">
                 Cashed Out!
-                <span className="amount">${winAmount.toFixed(2)}</span>
+                <span className="amount">₹{winAmount.toFixed(2)}</span>
               </div>
             </div>
           )}

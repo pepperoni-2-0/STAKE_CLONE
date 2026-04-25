@@ -142,7 +142,7 @@ export default function Mines() {
           <div className="mines-field">
             <label>Bet Amount</label>
             <div className="mines-input-wrap">
-              <span className="currency">$</span>
+              <span className="currency">₹</span>
               <input
                 type="number"
                 min="1"
@@ -184,7 +184,7 @@ export default function Mines() {
             </div>
             <div className="mines-stat-row">
               <span className="label">Potential Win</span>
-              <span className="value green">${isPlaying || status === "idle" ? potentialWin : winAmount.toFixed(2)}</span>
+              <span className="value green">₹{isPlaying || status === "idle" ? potentialWin : winAmount.toFixed(2)}</span>
             </div>
           </div>
 
@@ -199,7 +199,7 @@ export default function Mines() {
               onClick={cashOut}
               disabled={hits === 0}
             >
-              CASH OUT — ${potentialWin}
+              CASH OUT — ₹{potentialWin}
             </button>
           )}
 
@@ -215,7 +215,7 @@ export default function Mines() {
             <div className="mines-result-overlay">
               <div className="mines-result-banner loss">
                 Mine Hit!
-                <span className="amount">$0.00</span>
+                <span className="amount">₹0.00</span>
               </div>
             </div>
           )}
@@ -223,7 +223,7 @@ export default function Mines() {
             <div className="mines-result-overlay">
               <div className="mines-result-banner cashout-banner">
                 Cashed Out!
-                <span className="amount">${winAmount.toFixed(2)}</span>
+                <span className="amount">₹{winAmount.toFixed(2)}</span>
               </div>
             </div>
           )}
@@ -231,7 +231,7 @@ export default function Mines() {
             <div className="mines-result-overlay">
               <div className="mines-result-banner win">
                 All Gems Found!
-                <span className="amount">${winAmount.toFixed(2)}</span>
+                <span className="amount">₹{winAmount.toFixed(2)}</span>
               </div>
             </div>
           )}

@@ -78,7 +78,7 @@ export default function CoinToss() {
           <div className="ct-field">
             <label>Bet Amount</label>
             <div className="ct-input-wrap">
-              <span className="currency">$</span>
+              <span className="currency">₹</span>
               <input
                 type="number"
                 min="1"
@@ -122,7 +122,7 @@ export default function CoinToss() {
             </div>
             <div className="ct-stat-row">
               <span className="label">Potential Win</span>
-              <span className="value green">${status === "idle" ? potentialWin : winAmount.toFixed(2)}</span>
+              <span className="value green">₹{status === "idle" ? potentialWin : winAmount.toFixed(2)}</span>
             </div>
           </div>
 
@@ -148,7 +148,7 @@ export default function CoinToss() {
             <div className="ct-result-overlay">
               <div className="ct-result-banner win">
                 You Won!
-                <span className="amount">${winAmount.toFixed(2)}</span>
+                <span className="amount">₹{winAmount.toFixed(2)}</span>
               </div>
             </div>
           )}
@@ -156,7 +156,7 @@ export default function CoinToss() {
             <div className="ct-result-overlay">
               <div className="ct-result-banner loss">
                 You Lost!
-                <span className="amount">$0.00</span>
+                <span className="amount">₹0.00</span>
               </div>
             </div>
           )}

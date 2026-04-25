@@ -25,7 +25,7 @@ const Navbar = () => {
             <div className="balance-group">
               <div className="balance-square">
                 <span className="balance-amount">
-                  ${balance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  ₹{balance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
               </div>
               <button 
@@ -58,7 +58,7 @@ const Navbar = () => {
             <div className="deposit-grid">
               {depositAmounts.map(amount => (
                 <button key={amount} onClick={() => handleDeposit(amount)}>
-                  ${amount}
+                  ₹{amount}
                 </button>
               ))}
             </div>
