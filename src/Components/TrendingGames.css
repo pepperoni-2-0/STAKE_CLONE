@@ -23,9 +23,6 @@
 .title-group .icon {
   font-size: 1.5rem;
 }
-
-
-
 .scroll-container {
   display: flex;
   gap: 1.5rem;
@@ -33,7 +30,6 @@
   scroll-snap-type: x mandatory;
   padding-bottom: 1rem;
 }
-
 .game-card {
   flex: 0 0 180px;
   height: 250px;
@@ -45,7 +41,6 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: rgba(20, 30, 48, 0.8);
 }
-
 .game-card:hover {
   transform: scale(1.04);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
@@ -75,7 +70,6 @@
   background: linear-gradient(to top, rgba(15, 25, 35, 1) 0%, rgba(15, 25, 35, 0) 100%);
   z-index: 2;
 }
-
 .game-info {
   position: absolute;
   bottom: 0;
@@ -85,7 +79,6 @@
   z-index: 3;
   pointer-events: none;
 }
-
 .game-info h3 {
   font-size: 1rem;
   font-weight: 700;

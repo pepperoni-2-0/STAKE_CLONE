@@ -45,16 +45,16 @@ const Sidebar = () => {
           
           <div className={`dropdown-content ${isSportsOpen ? 'open' : ''}`}>
             <Link to="/cricket" className="sub-item">
-              🏏 Cricket
+              Cricket
             </Link>
             <Link to="/football" className="sub-item">
-              ⚽ Football
+              Football
             </Link>
             <Link to="/tennis" className="sub-item">
-              🎾 Tennis
+              Tennis
             </Link>
             <Link to="/basketball" className="sub-item">
-              🏀 Basketball
+              Basketball
             </Link>
           </div>
         </div>
