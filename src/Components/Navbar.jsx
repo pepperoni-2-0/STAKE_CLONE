@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { useWallet } from '../context/WalletContext';
 
 const Navbar = () => {
-  const { balance, addBalance, showDepositModal, setShowDepositModal } = useWallet();
+  const navigate = useNavigate();
+  const { user, logout, balance, addBalance, showDepositModal, setShowDepositModal } = useWallet();
 
   const depositAmounts = [500, 1000, 1500, 2000, 5000];
 
@@ -29,7 +30,7 @@ const Navbar = () => {
               </div>
               <button 
                 className="balance-add-btn" 
-                onClick={() => setShowDepositModal(true)}
+                onClick={() => user ? setShowDepositModal(true) : navigate('/login')}
               >
                 Add
               </button>
@@ -37,7 +38,14 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-right">
-            <button className="login-btn">Login</button>
+            {user ? (
+              <div className="user-profile-group">
+                <span className="user-greeting">Hi, {user.username}</span>
+                <button className="logout-btn" onClick={logout}>Logout</button>
+              </div>
+            ) : (
+              <button className="login-btn" onClick={() => navigate('/login')}>Login</button>
+            )}
           </div>
         </div>
       </nav>
