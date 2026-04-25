@@ -1,34 +1,34 @@
 
 export const STATIC_LOGOS = {
-  "Crystal Palace": "https://api.the-odds-api.com/v4/sports
-  "Wolverhampton Wanderers": "https://api.the-odds-api.com/v4/sports
-  "West Ham United": "https://api.the-odds-api.com/v4/sports
-  "Everton": "https://api.the-odds-api.com/v4/sports
-  "Brentford": "https://api.the-odds-api.com/v4/sports
-  "Leeds United": "https://api.the-odds-api.com/v4/sports
-  "Burnley": "https://api.the-odds-api.com/v4/sports
-  "Southampton": "https://api.the-odds-api.com/v4/sports
-  "Leicester City": "https://api.the-odds-api.com/v4/sports
-  "Nottingham Forest": "https://api.the-odds-api.com/v4/sports
-  "Bournemouth": "https://api.the-odds-api.com/v4/sports
-  "Fulham": "https://api.the-odds-api.com/v4/sports
-  "Sheffield United": "https://api.the-odds-api.com/v4/sports
-  "Luton Town": "https://api.the-odds-api.com/v4/sports
-  "Chelsea": "https://api.the-odds-api.com/v4/sports
-  "Arsenal": "https://api.the-odds-api.com/v4/sports
-  "Manchester United": "https://api.the-odds-api.com/v4/sports
-  "Manchester City": "https://api.the-odds-api.com/v4/sports
-  "Liverpool": "https://api.the-odds-api.com/v4/sports
-  "Tottenham Hotspur": "https://api.the-odds-api.com/v4/sports
-  "Aston Villa": "https://api.the-odds-api.com/v4/sports
-  "Atletico Madrid": "https://api.the-odds-api.com/v4/sports
-  "Sevilla": "https://api.the-odds-api.com/v4/sports
-  "Valencia": "https://api.the-odds-api.com/v4/sports
-  "Real Sociedad": "https://api.the-odds-api.com/v4/sports
-  "Villarreal": "https://api.the-odds-api.com/v4/sports
-  "Athletic Bilbao": "https://api.the-odds-api.com/v4/sports
-  "Real Betis": "https://api.the-odds-api.com/v4/sports
-  "Celta Vigo": "https://api.the-odds-api.com/v4/sports
-  "Osasuna": "https://api.the-odds-api.com/v4/sports
-  "Girona": "https://api.the-odds-api.com/v4/sports
+  "Crystal Palace": "https://r2.thesportsdb.com/images/media/team/badge/ia6i3m1656014992.png",
+  "Wolverhampton Wanderers": "https://r2.thesportsdb.com/images/media/team/badge/u9qr031621593327.png",
+  "West Ham United": "https://r2.thesportsdb.com/images/media/team/badge/yutyxs1467459956.png",
+  "Everton": "https://r2.thesportsdb.com/images/media/team/badge/eqayrf1523184794.png",
+  "Brentford": "https://r2.thesportsdb.com/images/media/team/badge/grv1aw1546453779.png",
+  "Leeds United": "https://r2.thesportsdb.com/images/media/team/badge/jcgrml1756649030.png",
+  "Burnley": "https://r2.thesportsdb.com/images/media/team/badge/ql7nl31686893820.png",
+  "Southampton": "https://r2.thesportsdb.com/images/media/team/badge/ggqtd01621593274.png",
+  "Leicester City": "https://r2.thesportsdb.com/images/media/team/badge/xtxwtu1448813356.png",
+  "Nottingham Forest": "https://r2.thesportsdb.com/images/media/team/badge/bk4qjs1546440351.png",
+  "Bournemouth": "https://r2.thesportsdb.com/images/media/team/badge/y08nak1534071116.png",
+  "Fulham": "https://r2.thesportsdb.com/images/media/team/badge/xwwvyt1448811086.png",
+  "Sheffield United": "https://r2.thesportsdb.com/images/media/team/badge/w7f8pj1672950689.png",
+  "Luton Town": "https://r2.thesportsdb.com/images/media/team/badge/v977eh1681319466.png",
+  "Chelsea": "https://r2.thesportsdb.com/images/media/team/badge/yvwvtu1448813215.png",
+  "Arsenal": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+  "Manchester United": "https://r2.thesportsdb.com/images/media/team/badge/xzqdr11517660252.png",
+  "Manchester City": "https://r2.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png",
+  "Liverpool": "https://r2.thesportsdb.com/images/media/team/badge/kfaher1737969724.png",
+  "Tottenham Hotspur": "https://r2.thesportsdb.com/images/media/team/badge/dfyfhl1604094109.png",
+  "Aston Villa": "https://r2.thesportsdb.com/images/media/team/badge/jykrpv1717309891.png",
+  "Atletico Madrid": "https://r2.thesportsdb.com/images/media/team/badge/0ulh3q1719984315.png",
+  "Sevilla": "https://r2.thesportsdb.com/images/media/team/badge/vpsqqx1473502977.png",
+  "Valencia": "https://r2.thesportsdb.com/images/media/team/badge/dm8l6o1655594864.png",
+  "Real Sociedad": "https://r2.thesportsdb.com/images/media/team/badge/vptvpr1473502986.png",
+  "Villarreal": "https://r2.thesportsdb.com/images/media/team/badge/vrypqy1473503073.png",
+  "Athletic Bilbao": "https://r2.thesportsdb.com/images/media/team/badge/68w7fe1639408210.png",
+  "Real Betis": "https://r2.thesportsdb.com/images/media/team/badge/2oqulv1663245386.png",
+  "Celta Vigo": "https://r2.thesportsdb.com/images/media/team/badge/xfjtku1690436219.png",
+  "Osasuna": "https://r2.thesportsdb.com/images/media/team/badge/rvspvt1473502960.png",
+  "Girona": "https://r2.thesportsdb.com/images/media/team/badge/kfu7zu1659897499.png"
 };

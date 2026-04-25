@@ -10,7 +10,7 @@ function TeamLogo({ teamName }) {
       src={src}
       alt={teamName}
       className="tmc-team-logo"
-      onError={() => setSrc(`https://api.the-odds-api.com/v4/sports
+      onError={() => setSrc(`https://ui-avatars.com/api/?name=${encodeURIComponent(teamName)}&background=1a2535&color=fff&size=48&bold=true&rounded=true`)}
     />
   )
 }

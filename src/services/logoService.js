@@ -1,40 +1,40 @@
 
 
-const SPORTSDB_BASE = 'https://api.the-odds-api.com/v4/sports
+const SPORTSDB_BASE = 'https://www.thesportsdb.com/api/v1/json/3';
 const CACHE_KEY = 'sb_logo_cache';
 
 const STATIC_LOGOS = {
-  "Chennai Super Kings": "https://api.the-odds-api.com/v4/sports
-  "Mumbai Indians": "https://api.the-odds-api.com/v4/sports
-  "Royal Challengers Bengaluru": "https://api.the-odds-api.com/v4/sports
-  "Kolkata Knight Riders": "https://api.the-odds-api.com/v4/sports
-  "Delhi Capitals": "https://api.the-odds-api.com/v4/sports
-  "Rajasthan Royals": "https://api.the-odds-api.com/v4/sports
-  "Sunrisers Hyderabad": "https://api.the-odds-api.com/v4/sports
-  "Punjab Kings": "https://api.the-odds-api.com/v4/sports
-  "Lucknow Super Giants": "https://api.the-odds-api.com/v4/sports
-  "Gujarat Titans": "https://api.the-odds-api.com/v4/sports
-  "Arsenal": "https://api.the-odds-api.com/v4/sports
-  "Manchester United": "https://api.the-odds-api.com/v4/sports
-  "Liverpool": "https://api.the-odds-api.com/v4/sports
-  "Chelsea": "https://api.the-odds-api.com/v4/sports
-  "Manchester City": "https://api.the-odds-api.com/v4/sports
-  "Tottenham Hotspur": "https://api.the-odds-api.com/v4/sports
-  "Newcastle United": "https://api.the-odds-api.com/v4/sports
-  "Aston Villa": "https://api.the-odds-api.com/v4/sports
-  "West Ham United": "https://api.the-odds-api.com/v4/sports
-  "Everton": "https://api.the-odds-api.com/v4/sports
-  "Real Madrid": "https://api.the-odds-api.com/v4/sports
-  "Barcelona": "https://api.the-odds-api.com/v4/sports
-  "Bayern Munich": "https://api.the-odds-api.com/v4/sports
-  "Los Angeles Lakers": "https://api.the-odds-api.com/v4/sports
-  "Boston Celtics": "https://api.the-odds-api.com/v4/sports
-  "Golden State Warriors": "https://api.the-odds-api.com/v4/sports
-  "Chicago Bulls": "https://api.the-odds-api.com/v4/sports
-  "Miami Heat": "https://api.the-odds-api.com/v4/sports
-  "New York Knicks": "https://api.the-odds-api.com/v4/sports
-  "Denver Nuggets": "https://api.the-odds-api.com/v4/sports
-  "Dallas Mavericks": "https://api.the-odds-api.com/v4/sports
+  "Chennai Super Kings": "https://r2.thesportsdb.com/images/media/team/badge/okceh51487601098.png",
+  "Mumbai Indians": "https://r2.thesportsdb.com/images/media/team/badge/l40j8p1487678631.png",
+  "Royal Challengers Bengaluru": "https://r2.thesportsdb.com/images/media/team/badge/kynj5v1588331757.png",
+  "Kolkata Knight Riders": "https://r2.thesportsdb.com/images/media/team/badge/ows99r1487678296.png",
+  "Delhi Capitals": "https://r2.thesportsdb.com/images/media/team/badge/dg4g0z1587334054.png",
+  "Rajasthan Royals": "https://r2.thesportsdb.com/images/media/team/badge/lehnfw1487601864.png",
+  "Sunrisers Hyderabad": "https://r2.thesportsdb.com/images/media/team/badge/sc7m161487419327.png",
+  "Punjab Kings": "https://r2.thesportsdb.com/images/media/team/badge/r1tcie1630697821.png",
+  "Lucknow Super Giants": "https://r2.thesportsdb.com/images/media/team/badge/4tzmfa1647445839.png",
+  "Gujarat Titans": "https://r2.thesportsdb.com/images/media/team/badge/6qw4r71654174508.png",
+  "Arsenal": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+  "Manchester United": "https://r2.thesportsdb.com/images/media/team/badge/xzqdr11517660252.png",
+  "Liverpool": "https://r2.thesportsdb.com/images/media/team/badge/kfaher1737969724.png",
+  "Chelsea": "https://r2.thesportsdb.com/images/media/team/badge/yvwvtu1448813215.png",
+  "Manchester City": "https://r2.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png",
+  "Tottenham Hotspur": "https://r2.thesportsdb.com/images/media/team/badge/dfyfhl1604094109.png",
+  "Newcastle United": "https://r2.thesportsdb.com/images/media/team/badge/lhwuiz1621593302.png",
+  "Aston Villa": "https://r2.thesportsdb.com/images/media/team/badge/jykrpv1717309891.png",
+  "West Ham United": "https://r2.thesportsdb.com/images/media/team/badge/yutyxs1467459956.png",
+  "Everton": "https://r2.thesportsdb.com/images/media/team/badge/eqayrf1523184794.png",
+  "Real Madrid": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+  "Barcelona": "https://r2.thesportsdb.com/images/media/team/badge/wq9sir1639406443.png",
+  "Bayern Munich": "https://r2.thesportsdb.com/images/media/team/badge/01ogkh1716960412.png",
+  "Los Angeles Lakers": "https://r2.thesportsdb.com/images/media/team/badge/d8uoxw1714254511.png",
+  "Boston Celtics": "https://r2.thesportsdb.com/images/media/team/badge/4j85bn1667936589.png",
+  "Golden State Warriors": "https://r2.thesportsdb.com/images/media/team/badge/irobi61565197527.png",
+  "Chicago Bulls": "https://r2.thesportsdb.com/images/media/team/badge/yk7swg1547214677.png",
+  "Miami Heat": "https://r2.thesportsdb.com/images/media/team/badge/5v67x51547214763.png",
+  "New York Knicks": "https://r2.thesportsdb.com/images/media/team/badge/wyhpuf1511810435.png",
+  "Denver Nuggets": "https://r2.thesportsdb.com/images/media/team/badge/8o8j5k1546016274.png",
+  "Dallas Mavericks": "https://r2.thesportsdb.com/images/media/team/badge/yqrxrs1420568796.png"
 };
 
 let initialCache = {};
@@ -79,7 +79,7 @@ function getInitials(name) {
 
 export function generateFallbackAvatar(teamName) {
   const color = getColorForTeam(teamName).replace('#', '');
-  return `https://api.the-odds-api.com/v4/sports
+  return `https://ui-avatars.com/api/?name=${encodeURIComponent(teamName)}&background=${color}&color=fff&size=40&bold=true&rounded=true`;
 }
 
 const queue = [];
@@ -97,7 +97,7 @@ async function processQueue() {
       );
 
       if (!response.ok) {
-        
+
         resolve(generateFallbackAvatar(teamName));
       } else {
         const data = await response.json();
@@ -125,7 +125,7 @@ async function processQueue() {
     } finally {
       pendingRequests.delete(teamName);
     }
-    
+
     await new Promise(r => setTimeout(r, 100));
   }
 
@@ -134,7 +134,7 @@ async function processQueue() {
 
 
 export function fetchTeamLogo(teamName) {
-  
+
   const staticMatch = Object.keys(STATIC_LOGOS).find(k => k.toLowerCase() === teamName.toLowerCase());
   if (staticMatch) {
     return Promise.resolve(STATIC_LOGOS[staticMatch]);

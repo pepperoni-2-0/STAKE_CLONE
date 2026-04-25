@@ -87,7 +87,7 @@ function parseOdds(event) {
     return null;
   }
 
-  
+
   const bookmaker = event.bookmakers[0];
   const h2hMarket = bookmaker.markets?.find(m => m.key === 'h2h');
 
@@ -112,7 +112,7 @@ async function fetchOddsForSport(sportKey) {
     throw new Error('API_KEY_MISSING');
   }
 
-  
+
   const CACHE_KEY = `sb_odds_cache_${sportKey}`;
   try {
     const cached = localStorage.getItem(CACHE_KEY);
@@ -149,7 +149,7 @@ async function fetchOddsForSport(sportKey) {
 
   const data = await response.json();
   
-  
+
   try {
     localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data, quota: currentQuota }));
   } catch(e) {}
@@ -164,7 +164,7 @@ export async function fetchOddsForCategory(categoryKey) {
 
   const results = [];
 
-  
+
   const promises = config.sportKeys.map(async (sportKey) => {
     try {
       const events = await fetchOddsForSport(sportKey);
@@ -180,7 +180,7 @@ export async function fetchOddsForCategory(categoryKey) {
         isLive: new Date(event.commence_time) <= new Date(),
       }));
     } catch (err) {
-      
+
       if (err.message === 'API_KEY_MISSING' || err.message === 'INVALID_API_KEY') {
         throw err;
       }
