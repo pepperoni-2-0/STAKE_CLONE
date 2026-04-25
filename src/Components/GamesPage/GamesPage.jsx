@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import "./GamesPage.css";
 
 const GAMES = [
-  { id: "mines", slug: "mines", name: "Mines", img: "/assets/mines_logo.png", color: "#00bfff", bgGradient: "linear-gradient(135deg, #001f2a 0%, #00131a 100%)" },
-  { id: "dragon", slug: "dragon-tower", name: "Dragon Tower", img: "https://mediumrare.imgix.net/2c3e16f0a3b8cd8d979265e48dd6a169937a4a4d0acb05ad532ca8345a1e6f21?w=180&auto=format", color: "#ff4d4d", bgGradient: "linear-gradient(135deg, #2a0808 0%, #1a0505 100%)" },
-  { id: "cointoss", slug: "coin-toss", name: "Coin Toss", img: "/assets/coinToss.png", color: "#00e676", bgGradient: "linear-gradient(135deg, #002a15 0%, #001a0d 100%)" },
-  { id: "whack", slug: "whack-a-mole", name: "Whack-A-Mole", img: "https://mediumrare.imgix.net/5e6f7bb02df67a02a9182aab05d0976a9abbac7f45997975eed765332a8b7d73?w=180&auto=format", color: "#ffb700", bgGradient: "linear-gradient(135deg, #2a1f00 0%, #1a1300 100%)" },
-  { id: "rps", slug: "rps", name: "RPS Duel", img: "/assets/rps.png", color: "#9f7aea", bgGradient: "linear-gradient(135deg, #1a0b2e 0%, #0d0517 100%)" }
+  { id: "mines", slug: "mines", name: "Mines", img: "/assets/mines_logo.png", color: "#00bfff", bgGradient: "linear-gradient(135deg, #001f2a 0%, #00131a 100%)", bgSize: "cover" },
+  { id: "dragon", slug: "dragon-tower", name: "Dragon Tower", img: "/assets/dragontower.png", color: "#ff4d4d", bgGradient: "linear-gradient(135deg, #2a0808 0%, #1a0505 100%)", bgSize: "cover" },
+  { id: "cointoss", slug: "coin-toss", name: "Coin Toss", img: "/assets/coinToss.png", color: "#00e676", bgGradient: "linear-gradient(135deg, #002a15 0%, #001a0d 100%)", bgSize: "contain" },
+  { id: "whack", slug: "whack-a-mole", name: "Whack-A-Mole", img: "/assets/whack.png", color: "#ffb700", bgGradient: "linear-gradient(135deg, #2a1f00 0%, #1a1300 100%)", bgSize: "cover" },
+  { id: "rps", slug: "rps", name: "RPS Duel", img: "/assets/rps.png", color: "#9f7aea", bgGradient: "linear-gradient(135deg, #1a0b2e 0%, #0d0517 100%)", bgSize: "contain" }
 ];
 
 export default function GamesPage() {
@@ -77,7 +77,7 @@ function GameCard({ game, index, onClick }) {
       >
         <div className="gp-card-glow-border"></div>
         <div className="gp-card-content">
-          <div className="gp-icon-wrapper" style={{ backgroundImage: `url(${game.img})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: '100%', height: '200px', borderRadius: '12px', marginBottom: '16px' }}>
+          <div className="gp-icon-wrapper" style={{ backgroundImage: `url(${game.img})`, backgroundSize: game.bgSize || 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: '100%', height: '200px', borderRadius: '12px', marginBottom: '16px' }}>
           </div>
           <h3 className="gp-card-title">{game.name}</h3>
           

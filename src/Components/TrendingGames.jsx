@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './TrendingGames.css';
 
 const games = [
-  { id: 1, name: 'Mines', players: '1,141', slug: 'mines', img: '/assets/mines_logo.png', bgSize: 'contain' },
+  { id: 1, name: 'Mines', players: '1,141', slug: 'mines', img: '/assets/mines_logo.png', bgSize: 'cover' },
   { id: 2, name: 'Dragon Tower', players: '2,302', slug: 'dragon-tower', img: '/assets/dragontower.png', bgSize: 'cover' },
   { id: 3, name: 'Coin Toss', players: '890', slug: 'coin-toss', img: '/assets/coinToss.png', bgSize: 'contain' },
   { id: 4, name: 'Whack-A-Mole', players: '1,560', slug: 'whack-a-mole', img: '/assets/whack.png', bgSize: 'cover' },
