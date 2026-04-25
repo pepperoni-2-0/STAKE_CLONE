@@ -23,24 +23,11 @@ const Sidebar = () => {
           </button>
           
           <div className={`dropdown-content ${isCasinoOpen ? 'open' : ''}`}>
-            <Link to="/games/sweet-bonanza" className="sub-item active">
-              Sweet Bonanza 2500
-            </Link>
-            <Link to="/games/gates-of-olympus" className="sub-item">
-              Gates of Olympus 1000
-            </Link>
-            <Link to="/games/wanted-dead" className="sub-item">
-              Wanted Dead or a Wild
-            </Link>
-            <Link to="/games/sugar-rush" className="sub-item">
-              Sugar Rush
-            </Link>
-            <Link to="/games/starlight-princess" className="sub-item">
-              Starlight Princess
-            </Link>
-            <Link to="/games/fruit-party" className="sub-item">
-              Fruit Party
-            </Link>
+            <Link to="/games/mines" className="sub-item">Mines</Link>
+            <Link to="/games/dragon-tower" className="sub-item">Dragon Tower</Link>
+            <Link to="/games/coin-toss" className="sub-item">Coin Toss</Link>
+            <Link to="/games/whack-a-mole" className="sub-item">Whack-A-Mole</Link>
+            <Link to="/games/rps" className="sub-item">RPS Duel</Link>
           </div>
         </div>
 
