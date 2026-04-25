@@ -1,6 +1,6 @@
-import Hero from '../components/Hero';
-import TrendingGames from '../components/TrendingGames';
-import TrendingSports from '../components/TrendingSports';
+import Hero from '../Components/Hero';
+import TrendingGames from '../Components/TrendingGames';
+import TrendingSports from '../Components/TrendingSports';
 
 const LandingPage = () => {
   return (

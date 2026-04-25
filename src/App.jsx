@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
+import Navbar from './Components/Navbar';
+import Sidebar from './Components/Sidebar';
 import LandingPage from './pages/LandingPage';
 import CricketPage from './pages/CricketPage';
 import FootballPage from './pages/FootballPage';
@@ -16,13 +16,13 @@ import StarlightPrincessPage from './pages/games/StarlightPrincessPage';
 import FruitPartyPage from './pages/games/FruitPartyPage';
 
 // Our Original Games
-import DragonTower from "./components/Dragon-Tower/DragonTower.jsx";
-import WhackAMole from "./components/Whack-A-Mole/WhackAMole.jsx";
-import CoinToss from "./components/Coin-Toss/CoinToss.jsx";
-import Mines from "./components/Mines/Mines.jsx";
-import RPS from "./components/RPS/RPS.jsx";
-import GamesPage from "./components/GamesPage/GamesPage.jsx";
-import SportsPage from "./components/SportsPage/SportsPage.jsx";
+import DragonTower from "./Components/Dragon-Tower/DragonTower.jsx";
+import WhackAMole from "./Components/Whack-A-Mole/WhackAMole.jsx";
+import CoinToss from "./Components/Coin-Toss/CoinToss.jsx";
+import Mines from "./Components/Mines/Mines.jsx";
+import RPS from "./Components/RPS/RPS.jsx";
+import GamesPage from "./Components/GamesPage/GamesPage.jsx";
+import SportsPage from "./Components/SportsPage/SportsPage.jsx";
 
 import './App.css';
 
