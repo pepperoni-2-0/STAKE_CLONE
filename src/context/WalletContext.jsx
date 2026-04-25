@@ -2,32 +2,83 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const WalletContext = createContext();
 
+const getKey = (email, suffix) => email ? `${suffix}_${email}` : null;
+
 export const WalletProvider = ({ children }) => {
+  const [user, setUser] = useState(() => {
+    try {
+      const stored = localStorage.getItem('nexus_user');
+      return stored ? JSON.parse(stored) : null;
+    } catch { return null; }
+  });
+
+  const email = user?.email || null;
+
   const [balance, setBalance] = useState(() => {
-    const saved = localStorage.getItem('wallet_balance');
+    if (!email) return 0;
+    const saved = localStorage.getItem(getKey(email, 'wallet_balance'));
     return saved !== null ? parseFloat(saved) : 0;
   });
 
   const [betHistory, setBetHistory] = useState(() => {
-    const saved = localStorage.getItem('bet_history');
-    return saved !== null ? JSON.parse(saved) : [];
+    if (!email) return [];
+    try {
+      const saved = localStorage.getItem(getKey(email, 'bet_history'));
+      return saved ? JSON.parse(saved) : [];
+    } catch { return []; }
   });
 
   const [showDepositModal, setShowDepositModal] = useState(false);
 
+  // When user changes (login/logout), reload that user's wallet data
   useEffect(() => {
-    localStorage.setItem('wallet_balance', balance.toString());
-  }, [balance]);
+    if (!user?.email) {
+      setBalance(0);
+      setBetHistory([]);
+      return;
+    }
+    const bKey = getKey(user.email, 'wallet_balance');
+    const hKey = getKey(user.email, 'bet_history');
 
+    const savedBalance = localStorage.getItem(bKey);
+    setBalance(savedBalance !== null ? parseFloat(savedBalance) : 0);
+
+    try {
+      const savedHistory = localStorage.getItem(hKey);
+      setBetHistory(savedHistory ? JSON.parse(savedHistory) : []);
+    } catch { setBetHistory([]); }
+  }, [user?.email]);
+
+  // Persist balance (only if logged in)
   useEffect(() => {
-    localStorage.setItem('bet_history', JSON.stringify(betHistory));
-  }, [betHistory]);
+    if (!email) return;
+    localStorage.setItem(getKey(email, 'wallet_balance'), balance.toString());
+  }, [balance, email]);
+
+  // Persist bet history (only if logged in)
+  useEffect(() => {
+    if (!email) return;
+    localStorage.setItem(getKey(email, 'bet_history'), JSON.stringify(betHistory));
+  }, [betHistory, email]);
+
+  const login = (username, loginEmail) => {
+    const userData = { username, email: loginEmail };
+    localStorage.setItem('nexus_user', JSON.stringify(userData));
+    setUser(userData);
+  };
+
+  const logout = () => {
+    localStorage.removeItem('nexus_user');
+    setUser(null);
+  };
 
   const addBalance = (amount) => {
+    if (!user) return; // Must be logged in
     setBalance(prev => prev + amount);
   };
 
   const deductBalance = (amount) => {
+    if (!user) return false; // Must be logged in
     if (balance >= amount) {
       setBalance(prev => prev - amount);
       return true;
@@ -36,6 +87,7 @@ export const WalletProvider = ({ children }) => {
   };
 
   const placeBet = (amount, type, game) => {
+    if (!user) return null; // Must be logged in
     if (deductBalance(amount)) {
       const newBet = {
         id: Date.now(),
@@ -64,6 +116,9 @@ export const WalletProvider = ({ children }) => {
 
   return (
     <WalletContext.Provider value={{ 
+      user,
+      login,
+      logout,
       balance, 
       betHistory, 
       addBalance, 
