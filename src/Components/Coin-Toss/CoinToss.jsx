@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import "./CoinToss.css";
+import { useWallet } from "../../context/WalletContext";
 
 const MULTIPLIER = 1.98;
 
@@ -18,10 +19,19 @@ export default function CoinToss() {
   const [result, setResult] = useState(null);
   const [isFlipping, setIsFlipping] = useState(false);
 
+  const { balance, placeBet, updateBetOutcome, setShowDepositModal } = useWallet();
+
   const potentialWin = (bet * MULTIPLIER).toFixed(2);
 
   const startGame = useCallback(() => {
     if (bet <= 0 || isFlipping) return;
+    if (balance < bet) {
+      setShowDepositModal(true);
+      return;
+    }
+
+    const betId = placeBet(bet, "Casino", "Coin Toss");
+    if (!betId) return;
     
     setIsFlipping(true);
     setStatus("playing");
@@ -34,14 +44,17 @@ export default function CoinToss() {
       setResult(flipResult);
       
       if (flipResult === choice) {
+        const win = +(bet * MULTIPLIER).toFixed(2);
         setStatus("won");
-        setWinAmount(+(bet * MULTIPLIER).toFixed(2));
+        setWinAmount(win);
+        updateBetOutcome(betId, win, MULTIPLIER, "won");
       } else {
         setStatus("lost");
+        updateBetOutcome(betId, 0, 0, "lost");
       }
       setIsFlipping(false);
     }, 1500);
-  }, [bet, choice, isFlipping]);
+  }, [bet, choice, isFlipping, balance, placeBet, updateBetOutcome]);
 
   const resetGame = useCallback(() => {
     setStatus("idle");

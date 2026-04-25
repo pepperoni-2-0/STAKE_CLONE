@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
 import "./Mines.css";
+import { useWallet } from "../../context/WalletContext";
 
 const TOTAL_TILES = 25;
 
@@ -14,6 +15,9 @@ export default function Mines() {
   const [minesPositions, setMolesPositions] = useState([]);
   const [revealed, setRevealed] = useState({});
   const [hits, setHits] = useState(0);
+  const [currentBetId, setCurrentBetId] = useState(null);
+
+  const { balance, placeBet, updateBetOutcome, setShowDepositModal } = useWallet();
 
   const isPlaying = status === "playing";
   const isFinished = status === "won" || status === "lost" || status === "cashed";
@@ -51,12 +55,21 @@ export default function Mines() {
 
   const startGame = useCallback(() => {
     if (bet <= 0 || minesCount < 1 || minesCount >= TOTAL_TILES) return;
+    if (balance < bet) {
+      setShowDepositModal(true);
+      return;
+    }
+
+    const betId = placeBet(bet, "Casino", "Mines");
+    if (!betId) return;
+
+    setCurrentBetId(betId);
     setMolesPositions([]);
     setRevealed({});
     setHits(0);
     setWinAmount(0);
     setStatus("playing");
-  }, [bet, minesCount]);
+  }, [bet, minesCount, balance, placeBet]);
 
   const handleTileClick = useCallback((index) => {
     if (!isPlaying || revealed[index]) return;
@@ -72,6 +85,7 @@ export default function Mines() {
     if (currentMines.includes(index)) {
       setStatus("lost");
       setWinAmount(0);
+      updateBetOutcome(currentBetId, 0, 0, "lost");
       
       const allRevealed = {};
       for (let i = 0; i < TOTAL_TILES; i++) allRevealed[i] = true;
@@ -86,20 +100,24 @@ export default function Mines() {
         for (let i = 0; i < newHits; i++) {
           finalMult *= (TOTAL_TILES - i) / (TOTAL_TILES - i - minesCount);
         }
-        setWinAmount(+(bet * finalMult).toFixed(2));
+        const win = +(bet * finalMult).toFixed(2);
+        setWinAmount(win);
+        updateBetOutcome(currentBetId, win, finalMult, "won");
       }
     }
-  }, [isPlaying, revealed, hits, minesPositions, generateMines, minesCount, bet]);
+  }, [isPlaying, revealed, hits, minesPositions, generateMines, minesCount, bet, currentBetId, updateBetOutcome]);
 
   const cashOut = useCallback(() => {
     if (!isPlaying || hits === 0) return;
+    const win = +(bet * currentMultiplier).toFixed(2);
     setStatus("cashed");
-    setWinAmount(+(bet * currentMultiplier).toFixed(2));
+    setWinAmount(win);
+    updateBetOutcome(currentBetId, win, currentMultiplier, "won");
     
     const allRevealed = {};
     for (let i = 0; i < TOTAL_TILES; i++) allRevealed[i] = true;
     setRevealed(allRevealed);
-  }, [isPlaying, hits, bet, currentMultiplier]);
+  }, [isPlaying, hits, bet, currentMultiplier, currentBetId, updateBetOutcome]);
 
   const resetGame = useCallback(() => {
     setMolesPositions([]);

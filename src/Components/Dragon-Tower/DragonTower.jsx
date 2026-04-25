@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
 import "./DragonTower.css";
+import { useWallet } from "../../context/WalletContext";
 
 const ROWS = 9;
 const COLS = 3;
@@ -64,6 +65,9 @@ export default function DragonTower() {
   const [currentLevel, setCurrentLevel] = useState(0);
   const [bet, setBet] = useState(100);
   const [winAmount, setWinAmount] = useState(0);
+  const [currentBetId, setCurrentBetId] = useState(null);
+
+  const { balance, placeBet, updateBetOutcome, setShowDepositModal } = useWallet();
 
   const multiplier  = MULTIPLIERS[Math.min(currentLevel, MULTIPLIERS.length - 1)];
   const potentialWin = (bet * multiplier).toFixed(2);
@@ -72,13 +76,22 @@ export default function DragonTower() {
 
   const startGame = useCallback(() => {
     if (bet <= 0) return;
+    if (balance < bet) {
+      setShowDepositModal(true);
+      return;
+    }
+
+    const betId = placeBet(bet, "Casino", "Dragon Tower");
+    if (!betId) return;
+
+    setCurrentBetId(betId);
     sfx.start();
     setTower(buildTower(ROWS, COLS));
     setRevealed({});
     setCurrentLevel(0);
     setWinAmount(0);
     setStatus("playing");
-  }, [bet]);
+  }, [bet, balance, placeBet]);
 
   const handleTile = useCallback((row, col) => {
     if (!isPlaying || row !== currentLevel) return;
@@ -98,29 +111,34 @@ export default function DragonTower() {
       setRevealed(prev => ({ ...prev, ...fullRow }));
       setStatus("lost");
       setWinAmount(0);
+      updateBetOutcome(currentBetId, 0, 0, "lost");
     } else {
       sfx.correct();
       const nextLevel = row + 1;
       const won = nextLevel >= ROWS;
       if (won) {
-        const final = +(bet * MULTIPLIERS[ROWS]).toFixed(2);
+        const finalMult = MULTIPLIERS[ROWS];
+        const final = +(bet * finalMult).toFixed(2);
         setWinAmount(final);
         setCurrentLevel(ROWS);
         setStatus("won");
+        updateBetOutcome(currentBetId, final, finalMult, "won");
       } else {
         setCurrentLevel(nextLevel);
         setWinAmount(+(bet * MULTIPLIERS[nextLevel]).toFixed(2));
       }
     }
-  }, [isPlaying, currentLevel, revealed, tower, bet]);
+  }, [isPlaying, currentLevel, revealed, tower, bet, currentBetId, updateBetOutcome]);
 
   const cashOut = useCallback(() => {
     if (!isPlaying || currentLevel === 0) return;
     sfx.cashout();
-    const final = +(bet * MULTIPLIERS[currentLevel]).toFixed(2);
+    const finalMult = MULTIPLIERS[currentLevel];
+    const final = +(bet * finalMult).toFixed(2);
     setWinAmount(final);
     setStatus("cashed");
-  }, [isPlaying, currentLevel, bet]);
+    updateBetOutcome(currentBetId, final, finalMult, "won");
+  }, [isPlaying, currentLevel, bet, currentBetId, updateBetOutcome]);
 
   const resetGame = useCallback(() => {
     setTower([]);

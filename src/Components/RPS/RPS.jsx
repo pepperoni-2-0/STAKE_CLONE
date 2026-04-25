@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import "./RPS.css";
+import { useWallet } from "../../context/WalletContext";
 
 const MULTIPLIER = 2.94;
 
@@ -95,6 +96,9 @@ export default function RPS() {
   const [houseChoice, setHouseChoice] = useState(null);
   const [winAmount, setWinAmount] = useState(0);
   const [isRevealing, setIsRevealing] = useState(false);
+  const [currentBetId, setCurrentBetId] = useState(null);
+
+  const { balance, placeBet, updateBetOutcome, setShowDepositModal } = useWallet();
 
   const potentialWin = (bet * MULTIPLIER).toFixed(2);
 
@@ -112,7 +116,15 @@ export default function RPS() {
 
   const startGame = useCallback(() => {
     if (bet <= 0 || isRevealing) return;
-    
+    if (balance < bet) {
+      setShowDepositModal(true);
+      return;
+    }
+
+    const betId = placeBet(bet, "Casino", "RPS Duel");
+    if (!betId) return;
+
+    setCurrentBetId(betId);
     setIsRevealing(true);
     setStatus("playing");
     setHouseChoice(null);
@@ -125,17 +137,21 @@ export default function RPS() {
       const outcome = determineOutcome(choice, houseRnd);
       
       if (outcome === "win") {
+        const win = +(bet * MULTIPLIER).toFixed(2);
         setStatus("won");
-        setWinAmount(+(bet * MULTIPLIER).toFixed(2));
+        setWinAmount(win);
+        updateBetOutcome(betId, win, MULTIPLIER, "won");
       } else if (outcome === "tie") {
         setStatus("tie");
         setWinAmount(bet);
+        updateBetOutcome(betId, bet, 1, "won"); // Tie is a refund, count as won with 1x
       } else {
         setStatus("lost");
+        updateBetOutcome(betId, 0, 0, "lost");
       }
       setIsRevealing(false);
     }, 2000);
-  }, [bet, choice, isRevealing]);
+  }, [bet, choice, isRevealing, balance, placeBet, updateBetOutcome]);
 
   const resetGame = useCallback(() => {
     setStatus("idle");

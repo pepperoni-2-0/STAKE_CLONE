@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 // We reuse the exact same CSS classes from GamesPage to keep 100% UI consistency!
 import "../GamesPage/GamesPage.css";
+import BetHistory from "../BetHistory/BetHistory";
 
 const SPORTS = [
   { id: "cricket", slug: "cricket", name: "Cricket", img: "https://mediumrare.imgix.net/cricket-en.png?w=180&auto=format", color: "#00bfff", bgGradient: "linear-gradient(135deg, #001f2a 0%, #00131a 100%)" },
@@ -31,6 +32,8 @@ export default function SportsPage() {
             <SportCard key={sport.id} sport={sport} index={index} onClick={() => navigate(`/${sport.slug}`)} />
           ))}
         </div>
+
+        <BetHistory />
       </div>
     </div>
   );

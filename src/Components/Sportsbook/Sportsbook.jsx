@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import './Sportsbook.css'
+import { useWallet } from '../../context/WalletContext'
 
 import SportsBar from './SportsBar'
 import LeagueSection from './LeagueSection'
@@ -20,6 +21,8 @@ export default function Sportsbook({ initialSport = 'football' }) {
   const [selectedBets, setSelectedBets] = useState({})
   const [prevOddsMap, setPrevOddsMap] = useState({})
   const [quotaRemaining, setQuotaRemaining] = useState(null)
+
+  const { balance, placeBet, updateBetOutcome, setShowDepositModal } = useWallet()
 
 
   const loadOdds = useCallback(async (sport, isRefresh = false) => {
@@ -106,6 +109,35 @@ export default function Sportsbook({ initialSport = 'football' }) {
   }
 
   const handleClearAll = () => setSelectedBets({})
+
+  const handlePlaceBet = (stake) => {
+    const betList = Object.values(selectedBets);
+    if (betList.length === 0 || stake <= 0) return;
+    
+    if (balance < stake) {
+      setShowDepositModal(true);
+      return;
+    }
+
+    const totalOdds = betList.reduce((acc, b) => acc * b.odds, 1);
+    const gameName = betList.length === 1 ? betList[0].match : `${betList.length} Fold Parlay`;
+    
+    const betId = placeBet(stake, "Sports", gameName);
+    if (betId) {
+      // Simulate sports bet outcome after 10 seconds for demo purposes
+      setTimeout(() => {
+        const won = Math.random() > 0.4; // 60% chance to win for demo
+        if (won) {
+          const payout = +(stake * totalOdds).toFixed(2);
+          updateBetOutcome(betId, payout, totalOdds, "won");
+        } else {
+          updateBetOutcome(betId, 0, 0, "lost");
+        }
+      }, 10000);
+      
+      handleClearAll();
+    }
+  };
 
 
   const selectedBetsLookup = {}
@@ -218,6 +250,7 @@ export default function Sportsbook({ initialSport = 'football' }) {
           bets={selectedBets}
           onRemoveBet={handleRemoveBet}
           onClearAll={handleClearAll}
+          onPlaceBet={handlePlaceBet}
         />
       </div>
     </div>

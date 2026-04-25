@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./GamesPage.css";
+import BetHistory from "../BetHistory/BetHistory";
 
 const GAMES = [
   { id: "mines", slug: "mines", name: "Mines", img: "/assets/mines_logo.png", color: "#00bfff", bgGradient: "linear-gradient(135deg, #001f2a 0%, #00131a 100%)", bgSize: "cover" },
@@ -31,6 +32,8 @@ export default function GamesPage() {
             <GameCard key={game.id} game={game} index={index} onClick={() => navigate(`/games/${game.slug}`)} />
           ))}
         </div>
+
+        <BetHistory />
       </div>
     </div>
   );

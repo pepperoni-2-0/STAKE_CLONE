@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import "./WhackAMole.css";
+import { useWallet } from "../../context/WalletContext";
 
 const HOLES = 6;
 const MOLES_COUNT = 3;
@@ -46,6 +47,9 @@ export default function WhackAMole() {
   const [revealedIndex, setRevealedIndex] = useState(null);
   const [hits, setHits] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [currentBetId, setCurrentBetId] = useState(null);
+
+  const { balance, placeBet, updateBetOutcome, setShowDepositModal } = useWallet();
 
   const isPlaying = status === "playing";
   const isFinished = status === "lost" || status === "cashed";
@@ -64,13 +68,22 @@ export default function WhackAMole() {
 
   const startGame = useCallback(() => {
     if (bet <= 0) return;
+    if (balance < bet) {
+      setShowDepositModal(true);
+      return;
+    }
+
+    const betId = placeBet(bet, "Casino", "Whack-A-Mole");
+    if (!betId) return;
+
+    setCurrentBetId(betId);
     randomizeMoles();
     setRevealedIndex(null);
     setHits(0);
     setWinAmount(0);
     setIsAnimating(false);
     setStatus("playing");
-  }, [bet, randomizeMoles]);
+  }, [bet, randomizeMoles, balance, placeBet]);
 
   const handleHoleClick = useCallback((index) => {
     if (!isPlaying || isAnimating || revealedIndex !== null) return;
@@ -92,16 +105,19 @@ export default function WhackAMole() {
         setStatus("lost");
         setWinAmount(0);
         setIsAnimating(false);
+        updateBetOutcome(currentBetId, 0, 0, "lost");
       }, 1000);
     }
-  }, [isPlaying, isAnimating, revealedIndex, molesPositions, randomizeMoles]);
+  }, [isPlaying, isAnimating, revealedIndex, molesPositions, randomizeMoles, currentBetId, updateBetOutcome]);
 
   const cashOut = useCallback(() => {
     if (!isPlaying || hits === 0 || isAnimating) return;
+    const win = +(bet * currentMultiplier).toFixed(2);
     setStatus("cashed");
-    setWinAmount(+(bet * currentMultiplier).toFixed(2));
+    setWinAmount(win);
+    updateBetOutcome(currentBetId, win, currentMultiplier, "won");
     setRevealedIndex(null);
-  }, [isPlaying, hits, bet, currentMultiplier, isAnimating]);
+  }, [isPlaying, hits, bet, currentMultiplier, isAnimating, currentBetId, updateBetOutcome]);
 
   const resetGame = useCallback(() => {
     setMolesPositions([]);

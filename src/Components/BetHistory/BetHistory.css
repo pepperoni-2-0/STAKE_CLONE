@@ -1,0 +1,122 @@
+.bet-history-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #1a2c38;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bet-history-header {
+  padding: 15px 20px;
+  background: #0f212e;
+  border-bottom: 1px solid #2f4553;
+}
+
+.bet-history-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.bet-history-tabs button {
+  background: transparent;
+  border: none;
+  color: #b1bad3;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.bet-history-tabs button:hover {
+  color: #fff;
+  background: #2f4553;
+}
+
+.bet-history-tabs button.active {
+  color: #fff;
+  background: #2f4553;
+}
+
+.bet-history-table-wrapper {
+  overflow-x: auto;
+}
+
+.bet-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.bet-history-table th {
+  padding: 15px 20px;
+  color: #b1bad3;
+  font-weight: 600;
+  background: #1a2c38;
+}
+
+.bet-history-table td {
+  padding: 15px 20px;
+  color: #fff;
+  border-top: 1px solid #2f4553;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.game-type-badge {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #b1bad3;
+  letter-spacing: 0.5px;
+}
+
+.game-name {
+  font-weight: 600;
+}
+
+.time-cell {
+  color: #b1bad3;
+  font-size: 12px;
+}
+
+.payout-win {
+  color: #00e701;
+  font-weight: 700;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.status-badge.won {
+  background: rgba(0, 231, 1, 0.1);
+  color: #00e701;
+}
+
+.status-badge.lost {
+  background: rgba(237, 65, 99, 0.1);
+  color: #ed4163;
+}
+
+.status-badge.pending {
+  background: rgba(177, 186, 211, 0.1);
+  color: #b1bad3;
+}
+
+.no-bets {
+  text-align: center;
+  padding: 40px !important;
+  color: #b1bad3;
+  font-style: italic;
+}

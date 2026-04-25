@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-export default function BetSlip({ bets, onRemoveBet, onClearAll }) {
+export default function BetSlip({ bets, onRemoveBet, onClearAll, onPlaceBet }) {
   const [stake, setStake] = useState('')
 
   const betList = Object.values(bets)
@@ -122,6 +122,10 @@ export default function BetSlip({ bets, onRemoveBet, onClearAll }) {
               className="place-bet-btn"
               disabled={stakeNum <= 0}
               id="place-bet-btn"
+              onClick={() => {
+                onPlaceBet(stakeNum);
+                setStake('');
+              }}
             >
               Place Bet
             </button>
